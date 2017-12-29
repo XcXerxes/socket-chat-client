@@ -1,5 +1,5 @@
 import Vue from 'vue'
-
+import 'vuetify/src/stylus/app.styl'
 import {
   Vuetify,
   VApp,
@@ -12,6 +12,9 @@ import {
   VCard,
   VBtn,
   VToolbar,
+  VProgressLinear,
+  VProgressCircular,
+  VSnackbar,
   transitions
 } from 'vuetify'
 
@@ -27,6 +30,9 @@ Vue.use(Vuetify, {
     VGrid,
     VCard,
     VToolbar,
+    VProgressLinear,
+    VProgressCircular,
+    VSnackbar,
     transitions
   },
   theme: {

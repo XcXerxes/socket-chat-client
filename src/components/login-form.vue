@@ -21,26 +21,27 @@
       :type="isEyeShow ? 'text' : 'password'"
     />
     <v-layout row warp>
-      <v-flex xs3 offset-xs1>
+      <v-flex xs5 offset-xs1 lg3 offset-lg1>
         <v-btn @click="clear" color="error">重置</v-btn>
       </v-flex>
-      <v-flex xs3>
-        <v-btn color="primary" @click="submit" :disabled="!valid">提交</v-btn>
+      <v-flex xs6 lg3>
+        <v-btn color="primary" @click="submit" :disabled="!valid" :loading="loading" >提交</v-btn>
       </v-flex>
     </v-layout> 
   </v-form>
 </template>
 <script>
+import validMixins from '@/mixins/validate'
 export default {
+  mixins: [validMixins],
+  props: {
+    loading: {
+      type: Boolean,
+      default: false
+    }
+  },
   data: () => ({
     valid: true,
-    usernameRules: [
-      value => !!value || '用户名或者邮箱不能为空',
-      value => (value && value.length) <= 15 || '长度不能超过15'
-    ],
-    passwordRules: [
-      val => !!val || '密码不能为空'
-    ],
     loginForm: {
       username: '',
       password: ''
@@ -56,6 +57,14 @@ export default {
     },
     clear () {
       this.$refs.form.reset()
+    }
+  },
+  created () {
+    if (this.$route.params.username) {
+      /* eslint-disable */
+      const {username, password} = this.$route.params
+      this.loginForm.username = username
+      this.loginForm.password = password
     }
   }
 }
