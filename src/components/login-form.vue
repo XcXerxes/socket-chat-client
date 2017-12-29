@@ -21,8 +21,8 @@
       :type="isEyeShow ? 'text' : 'password'"
     />
     <v-layout row warp>
-      <v-flex xs4>
-        <v-btn @click="clear" color="warning">重置</v-btn>
+      <v-flex xs3 offset-xs1>
+        <v-btn @click="clear" color="error">重置</v-btn>
       </v-flex>
       <v-flex xs3>
         <v-btn color="primary" @click="submit" :disabled="!valid">提交</v-btn>
