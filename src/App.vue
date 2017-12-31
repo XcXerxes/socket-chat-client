@@ -2,9 +2,7 @@
   <div id="app">
     <v-app id="inspire">
       <v-content>
-        <v-container fluid>
-          <router-view></router-view>
-        </v-container>
+        <router-view></router-view>
       </v-content>
       <v-footer id="inspire"></v-footer>
     </v-app>
@@ -19,4 +17,5 @@ export default {
 <style lang="scss">
   @import './assets/sass/reset.scss';
   @import './assets/sass/public.scss';
+  @import './assets/sass/room.scss';
 </style>

@@ -45,6 +45,7 @@ export default {
         this.btnLoading = false
         if (data.code === 200) {
           console.log('success')
+          this.$router.push('/room')
         }
       }).catch(err => {
         this.btnLoading = false

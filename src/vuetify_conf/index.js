@@ -15,6 +15,9 @@ import {
   VProgressLinear,
   VProgressCircular,
   VSnackbar,
+  VList,
+  VDivider,
+  VSwitch,
   transitions
 } from 'vuetify'
 
@@ -29,10 +32,13 @@ Vue.use(Vuetify, {
     VTextField,
     VGrid,
     VCard,
+    VList,
+    VDivider,
     VToolbar,
     VProgressLinear,
     VProgressCircular,
     VSnackbar,
+    VSwitch,
     transitions
   },
   theme: {
