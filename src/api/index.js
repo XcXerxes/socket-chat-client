@@ -15,6 +15,7 @@ export default {
   login (params) {
     return fetch(`${config.api}/login`, {
       method: 'POST',
+      mode: 'cors',
       headers: {
         'Content-Type': 'application/json'
       },

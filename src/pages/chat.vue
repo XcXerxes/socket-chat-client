@@ -26,6 +26,7 @@
 <script>
 import userList from '@/components/user-list'
 import drawerList from '@/components/drawer-list'
+import io from 'socket.io-client'
 export default {
   components: {
     drawerList,
@@ -37,9 +38,12 @@ export default {
   }),
   methods: {
     userItemClick (item, index) {
-      debugger
       this.userActiveIndex = index
     }
+  },
+  mounted () {
+    const socket = io('http://localhost:8888')
+    console.log(socket)
   }
 }
 </script>

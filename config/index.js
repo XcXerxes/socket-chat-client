@@ -11,12 +11,12 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/chat': {
+      /* '/chat': {
        target: "http://localhost:8888",
        pathRewrite: {
          '^/chat': '/chat'
        }
-      }
+      } */
     },
 
     // Various Dev Server settings
