@@ -14,7 +14,7 @@
         </v-toolbar>
         <div class="user-content__list scroll-y">
           <v-content>
-            <user-list  :activeIndex="userActiveIndex" @item-click="userItemClick"/>
+            <user  :activeIndex="userActiveIndex" @item-click="userItemClick" :list="userList"/>
           </v-content>
         </div>
       </v-flex>
@@ -24,26 +24,43 @@
 </v-flex>
 </template>
 <script>
-import userList from '@/components/user-list'
+import user from '@/components/user-list'
 import drawerList from '@/components/drawer-list'
+import {mapGetters} from 'vuex'
 import io from 'socket.io-client'
 export default {
   components: {
     drawerList,
-    userList
+    user
   },
   data: () => ({
     drawerShow: false,
-    userActiveIndex: -1
+    userActiveIndex: -1,
+    userList: []
   }),
+  computed: {
+    ...mapGetters([
+      'userInfo'
+    ])
+  },
   methods: {
     userItemClick (item, index) {
       this.userActiveIndex = index
     }
   },
+  created () {
+    this.$store.commit('user_info_receive')
+  },
   mounted () {
-    const socket = io('http://localhost:8888')
-    console.log(socket)
+    this.socket = io('http://localhost:8888')
+    this.socket.emit('user-online', this.userInfo)
+    this.socket.on('user-online', data => {
+      console.log('user=====' + data)
+      debugger
+      if (data) {
+        this.userList = data
+      }
+    })
   }
 }
 </script>

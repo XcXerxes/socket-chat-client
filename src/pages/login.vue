@@ -27,6 +27,7 @@
   </transition>
 </template>
 <script>
+import store2 from 'store2'
 import LoginForm from '@/components/login-form'
 import api from '@/api'
 export default {
@@ -45,6 +46,8 @@ export default {
         this.btnLoading = false
         if (data.code === 200) {
           console.log('success')
+          store2.session.set('user-info', data.data)
+          this.$store.commit('user_info_receive', data.data)
           this.$router.push('/room')
         }
       }).catch(err => {

@@ -22,3 +22,60 @@
     }
   }
 }
+/*'#f44336', '#e91e63', '#673ab7', '#9c27b0', '#3f51b5', '#2196f3', '#03a9f4', '#4caf50', '#009688', '#8bc34a']*/
+.list__tile__avatar {
+  .avatar {
+    color: #fff;
+    font-size: 16px;
+  }
+   &.is-red {
+     .avatar {
+       background-color: #f44336;
+     }
+   }
+   &.is-pink {
+     .avatar {
+       background-color: #e91e63;
+     }
+   }
+   &.is-purple {
+     .avatar {
+       background-color: #673ab7;
+     }
+   }
+   &.is-deep-purple {
+     .avatar {
+       background-color: #9c27b0;
+    }
+   }
+   &.is-indigo {
+     .avatar {
+       background-color: #3f51b5;
+     }
+   }
+   &.is-blue {
+     .avatar {
+       background-color: #2196f3;
+    }
+   }
+   &.is-light-blue {
+     .avatar {
+       background-color: #03a9f4;
+     }
+   }
+   &.is-cyan {
+     .avatar {
+       background-color: #4caf50;
+     }
+   }
+   &.is-teal {
+     .avatar {
+       background-color: #009688;
+     }
+   }
+   &.is-green {
+     .avatar {
+       background-color: #8bc34a;
+     }
+   }
+}

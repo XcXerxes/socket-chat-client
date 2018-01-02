@@ -1,12 +1,12 @@
 <template>
   <v-list class="user-list">
-    <template v-for="i in 20">
-      <v-list-tile avatar ripple @click="itemClick(i)" >
-        <v-list-tile-avatar>
-          <img src="https://randomuser.me/api/portraits/men/85.jpg" />
+    <template v-for="(item, index) in list">
+      <v-list-tile avatar ripple @click="itemClick(i)" :key="index" >
+        <v-list-tile-avatar :class="setColor">
+          {{item.username | setName}}
         </v-list-tile-avatar>
         <v-list-tile-content>
-          <v-list-tile-title>leo</v-list-tile-title>
+          <v-list-tile-title>{{item.username}}</v-list-tile-title>
           <v-list-tile-sub-title>在干嘛？</v-list-tile-sub-title>
         </v-list-tile-content>
       </v-list-tile>
@@ -14,6 +14,7 @@
   </v-list>
 </template>
 <script>
+import {randomColor} from '@/utils'
 export default {
   props: {
     list: {
@@ -23,6 +24,16 @@ export default {
     activeIndex: {
       type: Number,
       default: -1
+    }
+  },
+  computed: {
+    setColor () {
+      return randomColor()
+    }
+  },
+  filters: {
+    setName (val) {
+      return val.substr(0, 1).toLocaleUpperCase()
     }
   },
   methods: {
