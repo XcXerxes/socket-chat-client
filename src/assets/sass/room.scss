@@ -7,6 +7,8 @@
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
 }
 .user-content {
+  position: relative;
+  z-index: 5;
   background-color: white;
   height: 100%;
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
@@ -15,9 +17,15 @@
   max-height: 440px;
   background-color: white;
 }
+.chat-content__list {
+  height: calc(100% - 104px);
+  .content--wrap {
+    height: 100%;
+  }
+}
 .user-list {
   .user-item{
-    &.is-active {
+    &.avatar-active {
       background-color: cornflowerblue;
     }
   }
@@ -28,54 +36,93 @@
     color: #fff;
     font-size: 16px;
   }
-   &.is-red {
+   &.avatar-red {
      .avatar {
        background-color: #f44336;
      }
    }
-   &.is-pink {
+   &.avatar-pink {
      .avatar {
        background-color: #e91e63;
      }
    }
-   &.is-purple {
+   &.avatar-purple {
      .avatar {
        background-color: #673ab7;
      }
    }
-   &.is-deep-purple {
+   &.avatar-deep-purple {
      .avatar {
        background-color: #9c27b0;
     }
    }
-   &.is-indigo {
+   &.avatar-indigo {
      .avatar {
        background-color: #3f51b5;
      }
    }
-   &.is-blue {
+   &.avatar-blue {
      .avatar {
        background-color: #2196f3;
     }
    }
-   &.is-light-blue {
+   &.avatar-light-blue {
      .avatar {
        background-color: #03a9f4;
      }
    }
-   &.is-cyan {
+   &.avatar-cyan {
      .avatar {
        background-color: #4caf50;
      }
    }
-   &.is-teal {
+   &.avatar-teal {
      .avatar {
        background-color: #009688;
      }
    }
-   &.is-green {
+   &.avatar-green {
      .avatar {
        background-color: #8bc34a;
      }
    }
+}
+.chat-history__content {
+  &.list {
+    background-color: transparent;
+    .list__tile {
+      align-items: flex-start;
+      .list__tile__title {
+        font-size: 13px;
+      }
+    }
+    .list__tile--avatar {
+      height: auto;
+        .avatar {
+          width: 32px;
+          height: 32px;
+        }
+    }
+    .list__tile__content {
+      justify-content: flex-start;
+      overflow: initial;
+      padding-top: 2px;
+      .list__tile__title,
+      .list__tile__sub-title {
+        white-space: inherit;
+        overflow: visible;
+      }
+      .list__tile__sub-title {
+        word-break: break-all;
+      }
+    }
+  }
+}
+.chat-history__content {
+  justify-content: flex-start;
+}
+.chat-history__text {
+  transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+  width: 100%;
+  word-break: break-all;
 }

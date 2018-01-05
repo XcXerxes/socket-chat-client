@@ -7,8 +7,8 @@ const randomColor = () => {
 }
 
 const getColorArray = () => {
-  return ['is-red', 'is-pink', 'is-purple', 'is-deep-purple',
-    'is-indigo', 'is-blue', 'light-blue', 'is-cyan', 'is-teal', 'is-green'
+  return ['avatar-red', 'avatar-pink', 'avatar-purple', 'avatar-deep-purple',
+    'avatar-indigo', 'avatar-blue', 'light-blue', 'avatar-cyan', 'avatar-teal', 'avatar-green'
   ]
 }
 export {randomColor}
